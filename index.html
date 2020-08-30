@@ -182,7 +182,7 @@
             var maxPoint = new Point(view.size.width, view.size.height);
             var randPoint = Point.random();
             var point = maxPoint * randPoint;    
-            var myCircle = new Path.Circle(point, 400);
+            var myCircle = new Path.RegularPolygon(point, Math.floor(Math.random()*7) + 3, 500)
             myCircle.fillColor = keyData[event.key].color;
             circles.push(myCircle); 
         }
@@ -190,7 +190,8 @@
         function onFrame(event){
             for(var i=0; i<circles.length; i++){
                 circles[i].fillColor.hue+=1;
-                circles[i].scale(0.9);
+				circles[i].scale(0.9);
+				circles[i].rotate(3);
             }
         }
 
